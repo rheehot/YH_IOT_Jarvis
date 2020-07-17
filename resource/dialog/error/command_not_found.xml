@@ -1,0 +1,3 @@
+<speak>
+    <voice name="{voice_type}">입력하신 명령어 {command} 는 제가 지원하지 않는 기능이에요...</voice>
+</speak>
