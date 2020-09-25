@@ -1,9 +1,15 @@
-from typing import NoReturn
+from typing import NoReturn, Any, Dict
 from aiofile import AIOFile
+import json
 from chronous import BaseArchitecture, BaseEvent
 
 
 class Jarvis(BaseArchitecture):
+    """
+
+    """
+    config: Dict[str, Any] = {}
+
     def __init__(self, config_dir: str) -> None:
         """
         Intialize Jarvis
@@ -30,7 +36,7 @@ class Jarvis(BaseArchitecture):
         ::raise: Errors occured during process
         """
         async with AIOFile(self.config_dir, "rt") as afp:
-            afp.read()
+            self.config: Dict[str, Any] = json.loads(afp.read())
         await self.dispatch("init")
 
     async def main(self) -> NoReturn:
