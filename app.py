@@ -1,3 +1,2 @@
-from core import *
+from core import jarvis_instance
 
-jarvis = Jarvis(prefix="Jarvis")
